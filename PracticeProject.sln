@@ -3,9 +3,39 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3FF45F49-DE6A-4201-AB2B-BF1EAA5E0E24}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documents", "documents", "{0789A2B7-C144-45CA-B6FC-EA5298BABBA4}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\Architecting-Cloud-Native-NET-Apps-for-Azure.pdf = ..\..\..\Downloads\Architecting-Cloud-Native-NET-Apps-for-Azure.pdf
+		Microservice_using_ASP.NET_Core.txt = Microservice_using_ASP.NET_Core.txt
+		..\..\..\Downloads\NET-Microservices-Architecture-for-Containerized-NET-Applications.pdf = ..\..\..\Downloads\NET-Microservices-Architecture-for-Containerized-NET-Applications.pdf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{8E6EC204-D260-4D5E-97E7-EDBED3CD339F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "identity", "identity", "{4760AFAC-AAD7-4FDE-9E0E-AA522764ADC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.API", "Identity.API\Identity.API.csproj", "{C87D5C97-5457-4DEA-A062-20B695342C62}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C87D5C97-5457-4DEA-A062-20B695342C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C87D5C97-5457-4DEA-A062-20B695342C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C87D5C97-5457-4DEA-A062-20B695342C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C87D5C97-5457-4DEA-A062-20B695342C62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8E6EC204-D260-4D5E-97E7-EDBED3CD339F} = {3FF45F49-DE6A-4201-AB2B-BF1EAA5E0E24}
+		{4760AFAC-AAD7-4FDE-9E0E-AA522764ADC0} = {8E6EC204-D260-4D5E-97E7-EDBED3CD339F}
+		{C87D5C97-5457-4DEA-A062-20B695342C62} = {4760AFAC-AAD7-4FDE-9E0E-AA522764ADC0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {20E0D818-3BF1-489B-ADF4-673284A616A3}
