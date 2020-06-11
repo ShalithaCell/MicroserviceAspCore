@@ -15,7 +15,7 @@ namespace Identity.Infrastructure.DAL
     {
         public static void Seed(ApplicationDbContext context, IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
         {
-
+            SeedDefaultTenant(unitOfWork);
         }
 
         /// <summary>
@@ -28,12 +28,13 @@ namespace Identity.Infrastructure.DAL
             {
                 Name = "ABC",
                 City = "Toronto",
-                Email = "abc@gmail.com"
+                Email = "abccompany@gmail.com"
             };
 
 
-            unitOfWork.Tenants.Insert(tenant);
+            unitOfWork.Tenants.AddOrUpdateSingle(tenant);
             unitOfWork.Commit();
+
         }
     }
 }

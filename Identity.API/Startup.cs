@@ -78,7 +78,10 @@ namespace Identity.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context, 
+            RoleManager<ApplicationRole> roleManager, 
+            UserManager<ApplicationUser> userManager,
+            IUnitOfWork unitOfWork)
         {
             if (env.IsDevelopment())
             {
@@ -94,6 +97,8 @@ namespace Identity.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            DataBaseSeeder.Seed(context, unitOfWork, userManager, roleManager);
 
             app.UseEndpoints(endpoints =>
             {
