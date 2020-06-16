@@ -3,6 +3,7 @@ using Identity.Model.DataModels;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Identity.Infrastructure.DAL
@@ -36,5 +37,27 @@ namespace Identity.Infrastructure.DAL
             unitOfWork.Commit();
 
         }
+
+        public static void SeedDefaultApplicationRoles(RoleManager<ApplicationRole> roleManager, IUnitOfWork unitOfWork)
+        {
+            ApplicationRole applicationRole = new ApplicationRole
+            {
+                Name = "Administrator",
+                NormalizedName = "Administrator",
+                TenantID = unitOfWork.Tenants.Get(o => o.Name == "ABC").FirstOrDefault().ID
+            };
+
+            roleManager.CreateAsync(applicationRole).Wait();
+
+            applicationRole = new ApplicationRole
+            {
+                Name = "AuthenticatedUser",
+                NormalizedName = "AuthenticatedUser",
+                TenantID = unitOfWork.Tenants.Get(o => o.Name == "ABC").FirstOrDefault().ID
+            };
+
+            roleManager.CreateAsync(applicationRole).Wait();
+        }
+
     }
 }
